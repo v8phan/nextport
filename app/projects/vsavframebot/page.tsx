@@ -23,8 +23,6 @@ const project = {
     "Parses and scrapes the wiki for the relevant data, which is formatted and stored in a PostgreSQL database. Database is then hosted on supabase.",
     "Bot listens in a Discord server for a user's request, and then fetches the information from the database, formats it into the Discord embed, and then returns it.",
   ],
-  challenges:
-    "",
   outcome:
     "Bot is active in a server with over 5000 members and is used regularly. I am still actively updating and improving the bot.",
   githubUrl: "https://github.com/v8phan/VSAVframebot",
