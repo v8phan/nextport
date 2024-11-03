@@ -27,7 +27,6 @@ const project = {
     "",
   outcome:
     "Bot is active in a server with over 5000 members and is used regularly. I am still actively updating and improving the bot.",
-  date: "January 2024",
   githubUrl: "https://github.com/v8phan/VSAVframebot",
   imageUrl: "/images/vsavss.png",
 };
@@ -84,9 +83,6 @@ export default function ProjectPage() {
             </ul>
 
             <Separator className="my-6" />
-
-            <h3 className="text-xl font-semibold mb-2">Challenges</h3>
-            <p className="mb-6">{project.challenges}</p>
 
             <h3 className="text-xl font-semibold mb-2">Outcome</h3>
             <p className="mb-6">{project.outcome}</p>
