@@ -19,7 +19,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Github, Linkedin, Mail, Copy } from "lucide-react";
+import { Github, Linkedin, Mail, Copy, Download } from "lucide-react";
 
 const projects = [
   {
@@ -103,6 +103,17 @@ export default function Portfolio() {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
+  const handleDownloadResume = () => {
+    // Replace this URL with the actual URL of your resume file
+    const resumeUrl = "/documents/VietPhan-resume.pdf";
+    const link = document.createElement("a");
+    link.href = resumeUrl;
+    link.download = "VietPhan-resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const [isEmailDialogOpen, setIsEmailDialogOpen] = useState(false);
   const email = "viethoaiphan@gmail.com";
 
@@ -112,10 +123,18 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      {/* HEADER AND NAVBAR */}
       <header className="p-6 md:p-12">
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
           <div className="flex items-center mb-4 md:mb-0">
-            <h1 className="text-2xl font-bold">Viet Phan</h1>
+            <Button
+              variant="ghost"
+              className="text-2xl font-bold hover:bg-transparent"
+              onClick={handleDownloadResume}
+            >
+              Resume
+              <Download className="ml-2 h-4 w-4" />
+            </Button>
           </div>
           <nav>
             <ul className="flex space-x-4">
@@ -140,39 +159,52 @@ export default function Portfolio() {
       </header>
 
       <main className="container mx-auto px-6 py-12">
-        <section className="mb-12 flex flex-col items-center">
-          <div
-            className="relative w-48 h-48 md:w-64 md:h-64 mb-6 rounded-full overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-105"
-            onMouseEnter={handleImageChange}
-            onClick={handleImageChange}
-          >
-            <Image
-              src={images[currentImageIndex]}
-              alt="Viet Phan - Profile Picture"
-              layout="fill"
-              objectFit="cover"
-              priority
-              className="transition-opacity duration-300"
-            />
+        {/* PROFILE PICTURE AND ABOUT ME */}
+        <section
+          id="about"
+          className="mb-12 flex flex-col md:flex-row items-center md:items-start md:space-x-12"
+        >
+          <div className="w-full md:w-1/3 mb-6 md:mb-0 flex flex-col items-center">
+            <div
+              className="relative w-48 h-48 md:w-64 md:h-64 mb-6 rounded-full overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-105"
+              onMouseEnter={handleImageChange}
+              onClick={handleImageChange}
+            >
+              <Image
+                src={images[currentImageIndex]}
+                alt="Viet Phan - Profile Picture"
+                layout="fill"
+                objectFit="cover"
+                priority
+                className="transition-opacity duration-300"
+              />
+            </div>
+            <h2 className="text-3xl font-bold mb-2">Viet Phan</h2>
+            <p className="text-xl text-muted-foreground">Software Engineer</p>
           </div>
-          <h2 className="text-3xl font-bold mb-2">Viet Phan</h2>
-          <p className="text-xl text-muted-foreground">
-            viethoaiphan@gmail.com
-          </p>
+          <div className="w-full md:w-2/3">
+            <h2 className="text-3xl font-bold mb-4">About Me</h2>
+            <p className="text-lg mb-4">
+              Howdy, my name is Viet and I am an engineer with experience
+              working in a fast paced environment to deliver complex solutions
+              to large clients. I am adept at SQL and have created projects with
+              React/Javascript, Python, and other technologies. This portfolio
+              website is built with Next.js, React, Typescript, and Tailwind
+              CSS.
+            </p>
+            <p className="text-lg mb-4">
+              In my free time I enjoy playing tennis, reading, and fighting
+              games. I am also an avid baker so my coworkers can expect
+              consistent hard work, a good attitude, and pastries.
+            </p>
+            <p className="text-lg mb-4">
+              Thank you for your consideration.
+            </p>
+
+          </div>
         </section>
 
-        <section id="about" className="mb-12">
-          <h2 className="text-3xl font-bold mb-4">About Me</h2>
-          <p className="text-lg">
-            Howdy, my name is Viet and I am an engineer with experience working
-            in a fast paced environment to deliver complex solutions to large
-            clients. I am adept at SQL and have created projects in
-            React/Javascript and Python. Thank you for your consideration. This
-            portfolio website is built with Next.js, React, Typescript, and
-            Tailwind CSS.
-          </p>
-        </section>
-
+        {/* SKILLS */}
         <section id="skills" className="mb-12">
           <h2 className="text-3xl font-bold mb-4">Skills</h2>
           <div className="flex flex-wrap gap-2">
@@ -198,6 +230,7 @@ export default function Portfolio() {
           </div>
         </section>
 
+        {/* PROJECT CARDS */}
         <section id="projects" className="mb-12">
           <h2 className="text-3xl font-bold mb-4">Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -217,6 +250,7 @@ export default function Portfolio() {
           </div>
         </section>
 
+        {/* EXPERIENCE */}
         <section id="experience" className="mb-12">
           <h2 className="text-3xl font-bold mb-4">Experience</h2>
           <div className="space-y-6">
@@ -241,6 +275,7 @@ export default function Portfolio() {
           </div>
         </section>
 
+        {/* EDUCATION */}
         <section id="education" className="mb-12">
           <h2 className="text-3xl font-bold mb-4">Education</h2>
           <div className="space-y-6">
@@ -255,6 +290,7 @@ export default function Portfolio() {
           </div>
         </section>
 
+        {/* CONTACT ME BUTTONS */}
         <section id="contact" className="mb-12">
           <h2 className="text-3xl font-bold mb-4">Contact Me</h2>
           <div className="flex space-x-4">
@@ -294,11 +330,7 @@ export default function Portfolio() {
                 </DialogHeader>
                 <div className="flex items-center space-x-2">
                   <p className="text-sm font-medium">{email}</p>
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    onClick={showEmail}
-                  >
+                  <Button size="sm" variant="ghost" onClick={showEmail}>
                     <Copy className="h-4 w-4" />
                     <span className="sr-only">Copy email to clipboard</span>
                   </Button>
@@ -311,7 +343,7 @@ export default function Portfolio() {
 
       <footer className="bg-muted py-6">
         <div className="container mx-auto text-center">
-          <p>&copy; 2024 Viet Phan. All rights reserved.</p>
+          <p>2024 Viet Phan</p>
         </div>
       </footer>
     </div>

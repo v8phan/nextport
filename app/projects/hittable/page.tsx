@@ -44,7 +44,7 @@ export default function ProjectPage() {
                 alt={`Screenshot of ${project.title}`}
                 width={600}
                 height={400}
-                className="rounded-lg w-full h-auto"
+                className="rounded-lg h-auto"
               />
             </div>
 
