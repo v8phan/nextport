@@ -3,19 +3,19 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
-import { ArrowLeft, Github, ExternalLink, Calendar } from "lucide-react"
+import { ArrowLeft, Github } from "lucide-react"
 
 const project = {
-  title: "Hittable",
+  title: "Portfolio Website",
   description: "",
-  fullDescription: "A responsive portfolio site built with Next.js, React, Typescript, and Tailwind CSS. Uses components from Shadcn.",
+  fullDescription: "This website! A responsive portfolio site built with Next.js, React, Typescript, and Tailwind CSS. Uses components from Shadcn.",
   technologies: ["React", "Typescript", "HTML/CSS", "Shadcn"],
   features: [
     "Frontend built with React/Typescript",
     "Deployed with Vercel",
     "Uses Shadcn components"
   ],
-  githubUrl: "https://github.com/v8phan/hittable",
+  githubUrl: "https://github.com/v8phan/nextport",
 }
 
 export default function ProjectPage() {

@@ -10,7 +10,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { ArrowLeft, Github, ExternalLink, Calendar } from "lucide-react";
+import { ArrowLeft, Github } from "lucide-react";
 
 const project = {
   title: "VSAV Frame Bot",
@@ -20,13 +20,13 @@ const project = {
     "Data for the app was scraped from https://wiki.gbl.gg and stored in a SQL database via Postgres and then hosted onto supabase. Bot is built with Python, Dockerized, and hosted on AWS. It will listen for a user to call it and request a character's move and respond with the relevant information about the move. Bot is live and has active and daily users.",
   technologies: ["Python", "Docker", "SQL", "Postgres", "AWS", "beautifulsoup"],
   features: [
-    "Bot is made out of two parts, the first part being the scraper that parses the wiki for the data, formats it, and puts it into a PostgreSQL database, which is then hosted on supabase.",
-    "Second part is the actual bot itself built with Python that will listen for a user's calls and then hits the supabase database for the information, formats it into the Discord embed, and then returns it.",
+    "Parses and scrapes the wiki for the relevant data, which is formatted and stored in a PostgreSQL database. Database is then hosted on supabase.",
+    "Bot listens in a Discord server for a user's request, and then fetches the information from the database, formats it into the Discord embed, and then returns it.",
   ],
   challenges:
     "",
   outcome:
-    "Bot is active in a server with over 5000 members and is used regularly. I am still actively updating and improving the bot and user feedback has been very positive.",
+    "Bot is active in a server with over 5000 members and is used regularly. I am still actively updating and improving the bot.",
   date: "January 2024",
   githubUrl: "https://github.com/v8phan/VSAVframebot",
   imageUrl: "/images/vsavss.png",

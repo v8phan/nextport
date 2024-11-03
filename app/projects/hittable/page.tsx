@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
-import { ArrowLeft, Github, ExternalLink, Calendar } from "lucide-react"
+import { ArrowLeft, Github } from "lucide-react"
 
 const project = {
   title: "Hittable",

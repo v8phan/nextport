@@ -92,10 +92,21 @@ const education = [
 ];
 
 export default function Portfolio() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const images = [
+    "/images/BLUE.jpg",
+    "/images/DSCF3688.jpg",
+    "/images/purp.jpg",
+  ];
+  const handleImageChange = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
   const [isEmailDialogOpen, setIsEmailDialogOpen] = useState(false);
   const email = "viethoaiphan@gmail.com";
 
-  const copyEmailToClipboard = () => {
+  const showEmail = () => {
     navigator.clipboard.writeText(email);
   };
 
@@ -130,13 +141,18 @@ export default function Portfolio() {
 
       <main className="container mx-auto px-6 py-12">
         <section className="mb-12 flex flex-col items-center">
-          <div className="relative w-48 h-48 md:w-64 md:h-64 mb-6 rounded-full overflow-hidden">
+          <div
+            className="relative w-48 h-48 md:w-64 md:h-64 mb-6 rounded-full overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-105"
+            onMouseEnter={handleImageChange}
+            onClick={handleImageChange}
+          >
             <Image
-              src="/images/BLUE.jpg"
-              alt="Viet Phan"
+              src={images[currentImageIndex]}
+              alt="Viet Phan - Profile Picture"
               layout="fill"
               objectFit="cover"
               priority
+              className="transition-opacity duration-300"
             />
           </div>
           <h2 className="text-3xl font-bold mb-2">Viet Phan</h2>
@@ -152,7 +168,8 @@ export default function Portfolio() {
             in a fast paced environment to deliver complex solutions to large
             clients. I am adept at SQL and have created projects in
             React/Javascript and Python. Thank you for your consideration. This
-            portfolio website is built with Next.js, React, Typescript, and Tailwind CSS.
+            portfolio website is built with Next.js, React, Typescript, and
+            Tailwind CSS.
           </p>
         </section>
 
@@ -172,7 +189,7 @@ export default function Portfolio() {
               "Docker",
               "Git",
               "Next.js",
-              "Tailwind CSS"
+              "Tailwind CSS",
             ].map((skill) => (
               <Badge key={skill} variant="secondary">
                 {skill}
@@ -280,7 +297,7 @@ export default function Portfolio() {
                   <Button
                     size="sm"
                     variant="ghost"
-                    onClick={copyEmailToClipboard}
+                    onClick={showEmail}
                   >
                     <Copy className="h-4 w-4" />
                     <span className="sr-only">Copy email to clipboard</span>
