@@ -18,8 +18,6 @@ export const metadata: Metadata = {
   description: "portfolio website",
 };
 
-
-
 export default function RootLayout({
   children,
 }: Readonly<{
