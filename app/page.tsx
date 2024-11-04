@@ -129,7 +129,7 @@ export default function Portfolio() {
           <div className="flex items-center mb-4 md:mb-0">
             <Button
               variant="ghost"
-              className="text-2xl font-bold hover:bg-transparent"
+              className="text-2xl font-bold hover:text-white hover:bg-sky-500"
               onClick={handleDownloadResume}
             >
               Resume
@@ -197,10 +197,7 @@ export default function Portfolio() {
               games. I am also an avid baker so my coworkers can expect
               consistent hard work, a good attitude, and pastries.
             </p>
-            <p className="text-lg mb-4">
-              Thank you for your consideration.
-            </p>
-
+            <p className="text-lg mb-4">Thank you for your consideration.</p>
           </div>
         </section>
 
@@ -242,7 +239,12 @@ export default function Portfolio() {
                 </CardHeader>
                 <CardContent>
                   <Link href={`/projects/${project.id}`} passHref>
-                    <Button variant="outline">View Project</Button>
+                    <Button
+                      variant="outline"
+                      className="hover:text-white hover:bg-sky-500"
+                    >
+                      View Project
+                    </Button>
                   </Link>
                 </CardContent>
               </Card>
@@ -294,7 +296,12 @@ export default function Portfolio() {
         <section id="contact" className="mb-12">
           <h2 className="text-3xl font-bold mb-4">Contact Me</h2>
           <div className="flex space-x-4">
-            <Button variant="outline" size="icon" asChild>
+            <Button
+              variant="outline"
+              className="hover:text-white hover:bg-sky-500"
+              size="icon"
+              asChild
+            >
               <a
                 href="https://github.com/v8phan"
                 target="_blank"
@@ -304,7 +311,12 @@ export default function Portfolio() {
                 <span className="sr-only">GitHub Profile</span>
               </a>
             </Button>
-            <Button variant="outline" size="icon" asChild>
+            <Button
+              variant="outline"
+              className="hover:text-white hover:bg-sky-500"
+              size="icon"
+              asChild
+            >
               <a
                 href="https://www.linkedin.com/in/viethphan/"
                 target="_blank"
@@ -319,7 +331,11 @@ export default function Portfolio() {
               onOpenChange={setIsEmailDialogOpen}
             >
               <DialogTrigger asChild>
-                <Button variant="outline" size="icon">
+                <Button
+                  variant="outline"
+                  className="hover:text-white hover:bg-sky-500"
+                  size="icon"
+                >
                   <Mail className="h-4 w-4" />
                   <span className="sr-only">Show Email</span>
                 </Button>
