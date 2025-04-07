@@ -10,6 +10,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { useTheme } from "next-themes";
+import { Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -20,6 +22,23 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Github, Linkedin, Mail, Copy, Download } from "lucide-react";
+
+function ThemeToggle() {
+  const { theme, setTheme } = useTheme();
+
+  return (
+    <Button
+      variant="ghost"
+      size="icon"
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      aria-label="Toggle theme"
+    >
+      <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+      <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+      <span className="sr-only">Toggle theme</span>
+    </Button>
+  );
+}
 
 const projects = [
   {
@@ -51,6 +70,19 @@ const projects = [
 const experiences = [
   {
     title: "Software Engineer",
+    company: "Forge | forgeapp.io",
+    period: "September 2024 - ",
+    description:
+      "Designed, tested, and implemented new features for Forge.io, a platform focused on simplifying deployment and scaling of internal tools for companies",
+    highlights: [
+      "Authored comprehensive technical documentation for both internal use and end-users, improving product understanding and providing guidance for seamless integrations and workflows",
+      "Participated in code reviews and contributed to the development of best practices to ensure high-quality, maintainable code",
+      "Assisted in debugging and troubleshooting production issues, identifying areas for optimization and ensuring system reliability",
+      "Utilized Python, JavaScript, Docker, and other technologies to build and maintain robust software solutions",
+    ],
+  },
+  {
+    title: "Software/Integration Engineer",
     company: "Transplace, Uber Freight",
     period: "July 2022 - January 2024",
     description:
@@ -153,6 +185,9 @@ export default function Portfolio() {
                   Contact
                 </a>
               </li>
+              <li>
+                <ThemeToggle />
+              </li>
             </ul>
           </nav>
         </div>
@@ -185,12 +220,14 @@ export default function Portfolio() {
           <div className="w-full md:w-2/3">
             <h2 className="text-3xl font-bold mb-4">About Me</h2>
             <p className="text-lg mb-4">
-              Howdy, my name is Viet and I am an engineer with experience
-              working in a fast paced environment to deliver complex solutions
-              to large clients. I am adept at SQL and have created projects with
-              React/Javascript, Python, and other technologies. This portfolio
-              website is built with Next.js, React, Typescript, and Tailwind
-              CSS.
+              Self taught engineer with professional full stack experience. At
+              Uber Freight, developed strong experience in SQL, databases, and
+              working in cross functional teams. Since layoff, built an app
+              (VSAVFrameBot) that boasts dozens (dozens!) of regular users.
+              Currently developing forgeapp.io, a platform that provides
+              internal tools and workflows to securely integrate with a
+              user&apos;s codebase.This portfolio website is built with Next.js,
+              React, Typescript, and Tailwind CSS.
             </p>
             <p className="text-lg mb-4">
               In my free time I enjoy playing tennis, reading, and fighting
@@ -227,31 +264,6 @@ export default function Portfolio() {
           </div>
         </section>
 
-        {/* PROJECT CARDS */}
-        <section id="projects" className="mb-12">
-          <h2 className="text-3xl font-bold mb-4">Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {projects.map((project) => (
-              <Card key={project.id}>
-                <CardHeader>
-                  <CardTitle>{project.title}</CardTitle>
-                  <CardDescription>{project.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Link href={`/projects/${project.id}`} passHref>
-                    <Button
-                      variant="outline"
-                      className="hover:text-white hover:bg-sky-500"
-                    >
-                      View Project
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
-
         {/* EXPERIENCE */}
         <section id="experience" className="mb-12">
           <h2 className="text-3xl font-bold mb-4">Experience</h2>
@@ -271,6 +283,31 @@ export default function Portfolio() {
                       <li key={i}>{highlight}</li>
                     ))}
                   </ul>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* PROJECT CARDS */}
+        <section id="projects" className="mb-12">
+          <h2 className="text-3xl font-bold mb-4">Projects</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {projects.map((project) => (
+              <Card key={project.id}>
+                <CardHeader>
+                  <CardTitle>{project.title}</CardTitle>
+                  <CardDescription>{project.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Link href={`/projects/${project.id}`} passHref>
+                    <Button
+                      variant="outline"
+                      className="hover:text-white hover:bg-sky-500"
+                    >
+                      View Project
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
             ))}
