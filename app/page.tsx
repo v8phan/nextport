@@ -101,7 +101,7 @@ const experiences = [
   {
     title: "Fraud, Risk, and Payments Analyst",
     company: "BCforward/Accenture",
-    period: "Nov 2017 - July 2020",
+    period: "Nov 2017 - July 2022",
     description:
       "Developed and maintained multiple client websites and web applications. Worked with a variety of technologies including Vue.js, Express, and MongoDB.",
     highlights: [
