@@ -220,14 +220,14 @@ export default function Portfolio() {
           <div className="w-full md:w-2/3">
             <h2 className="text-3xl font-bold mb-4">About Me</h2>
             <p className="text-lg mb-4">
-              Self taught engineer with professional full stack experience. At
-              Uber Freight, developed strong experience in SQL, databases, and
-              working in cross functional teams. Since layoff, built an app
+              Self taught engineer with professional full stack experience.
+              Developed strong experience in SQL, databases, and working in
+              cross functional teams at Uber Freight. Since layoff, built an app
               (VSAVFrameBot) that boasts dozens (dozens!) of regular users.
               Currently developing forgeapp.io, a platform that provides
               internal tools and workflows to securely integrate with a
-              user&apos;s codebase.This portfolio website is built with Next.js,
-              React, Typescript, and Tailwind CSS.
+              user&apos;s codebase. This portfolio website is built with
+              Next.js, React, Typescript, and Tailwind CSS.
             </p>
             <p className="text-lg mb-4">
               In my free time I enjoy playing tennis, reading, and fighting
